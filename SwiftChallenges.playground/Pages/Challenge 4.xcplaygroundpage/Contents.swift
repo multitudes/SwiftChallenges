@@ -26,7 +26,16 @@ extension String {
         return a != nil
     }
 }
-"hello".fuzzyContains("he")
+
+// second option
+extension String {
+    func fuzzyContains2(_ string: String) -> Bool {
+        print(self.range(of: string, options: .caseInsensitive) ?? "doh")
+        return range(of: string, options: .caseInsensitive) != nil
+    }
+}
+
+"hello".fuzzyContains2("heh")
 
 
 
