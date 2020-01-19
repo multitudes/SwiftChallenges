@@ -88,3 +88,22 @@ func challenge10a(_ input: String) -> (vowels: Int, consonants: Int) {
 
 assert(challenge10a("Swift Coding Challenges") == (vowels: 6, consonants: 15), "fail")
 assert(challenge10a("Mississippi") == (vowels: 4, consonants: 7), "fail")
+
+func challenge10b(_ string: String) -> (vowels: Int, consonants: Int) {
+    let vowels = "aeiou"
+    let consonants = "bcdfghjklmnpqrstvwxyz"
+    var vowelCount = 0
+    var consonantCount = 0
+    for letter in string.lowercased() { if vowels.contains(letter) {
+        vowelCount += 1
+    } else if consonants.contains(letter) {
+        consonantCount += 1
+        }
+        
+    }
+    return (vowelCount, consonantCount)
+}
+
+
+assert(challenge10b("Swift Coding Challenges") == (vowels: 6, consonants: 15), "fail")
+assert(challenge10b("Mississippi") == (vowels: 4, consonants: 7), "fail")
