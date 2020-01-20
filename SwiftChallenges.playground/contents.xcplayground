@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='raw'>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
         <page name='Challenge 1'/>
         <page name='Challenge 2'/>
@@ -14,7 +14,8 @@
         <page name='Challenge 11 - 12'/>
         <page name='Challenge 13 - 15'/>
         <page name='Challenge 16 - Numbers'/>
-        <page name='Untitled Page 2'/>
-        <page name='Challenge 19'/>
+        <page name='Challenge'/>
+        <page name='Challenge 19 - 23'/>
+        <page name='Challenge 24'/>
     </pages>
 </playground>
