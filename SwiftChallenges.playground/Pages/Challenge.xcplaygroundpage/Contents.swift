@@ -67,3 +67,5 @@ let inputString = "323 ECO Economics Course 451 ENG English Course 789 Mathemati
 let courses = inputString.ranges(of: "\\b[0-9]{1,}[a-zA-Z ]{1,}", options: .regularExpression).map{inputString[$0] }
 
 print(courses)   //   ["323 ECO Economics Course ", "451 ENG English Course ", "789 Mathematical Topography"]
+
+
