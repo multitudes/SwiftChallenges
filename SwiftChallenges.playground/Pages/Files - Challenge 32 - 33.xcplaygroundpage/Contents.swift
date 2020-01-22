@@ -77,3 +77,56 @@ func challenge32a(filePath: String, word: String) -> Int {
 challenge32a(filePath: "/Users/laurentb/Documents/testss/output.txt", word: "long")
 challenge32a(filePath: "/Users/laurentb/Documents/testss/output.txt", word: "Super")
 challenge32a(filePath: "/Users/laurentb/Documents/testss/output.txt", word: "I'm")
+
+/*:
+ [Previous](@previous)
+
+ # Challenge 33: Find duplicate filenames
+ ### Difficulty: Tricky
+
+Write a function that accepts the name of a directory to scan, and returns an array of filenames that appear more than once in that directory or any of its subdirectories. Your function should scan all subdirectories, including subdirectories of subdirectories.
+
+ #### Sample input and output
+ 
+ • If directory/subdir/a.txt exists and directory/sub/sub/sub/sub/subdir/a.txt exists, “a.txt” should be in the array you return.
+ 
+ • Ignore directories that have the same name; you care only about files.
+
+ • If there are no files with duplicate names, return an empty array.
+
+ #### Hints
+ 
+ Hint #1: There are several ways of solving this, but most people instinctively reach for recursion to allow them to scan any depth of directory structure.
+ 
+ Hint #2: FileManager has better solutions, though – take some time to explore!
+ 
+ Hint #3: FileManager has an uncomfortable relationship between using String and URL for its data types. You should prefer the latter wherever possible, however your return value needs to be [String] because you care about duplicate names not paths.
+ 
+ Hint #4: If you can’t read the directory that was requested, returning an empty array seems like a sensible thing to do.
+ 
+ [Next](@next)
+*/
+
+import Foundation
+
+func challenge33(directory: String) -> [String] {
+    var isDirectory: ObjCBool = false
+    
+    let directoryURL = URL(fileURLWithPath: directory)
+    guard FileManager.default.fileExists(atPath: directory, isDirectory: &isDirectory) && isDirectory.boolValue == true else {
+        return []
+    }
+    
+    
+    print(directoryURL)
+    
+        return []
+    }
+
+challenge33(directory: "/Users/laurentb/Documents/testss/")
+challenge33(directory: "/Users/laurentb/Documents/testss/")
+
+
+
+
+
