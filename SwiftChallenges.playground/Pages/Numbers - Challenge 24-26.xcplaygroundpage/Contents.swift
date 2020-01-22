@@ -3,7 +3,7 @@
 
 #  Challenge 24: Add numbers inside a string
 
- ## Difficulty: Tricky
+ ### Difficulty: Tricky
  
  Given a string that contains both letters and numbers, write a function that pulls out all the
  numbers then returns their sum.
@@ -81,7 +81,7 @@ challenge24b("h8ers")
 
  # Challenge 25: Calculate a square root by hand
 
- ## Difficulty: Taxing
+ ### Difficulty: Taxing
  
  Write a function that returns the square root of a positive integer, rounded down to the nearest
  integer, without using sqrt().
@@ -163,7 +163,7 @@ challenge25c(15)
 
  # Challenge 26: Subtract without subtract
  
- ##Difficulty: Taxing
+ ### Difficulty: Taxing
 
  Create a function that subtracts one positive integer from another, without using -.
 

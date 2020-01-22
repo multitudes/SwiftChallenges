@@ -3,16 +3,20 @@
 
 #  Challenge 13: Run-length encoding
  
-## Difficulty: Tricky
+### Difficulty: Tricky
  
  Write a function that accepts a string as input, then returns how often each letter is repeated in
  a single run, taking case into account.
  Tip: This approach is used in a simple lossless compression technique called run-length encoding.
 
  Sample input and output
- • The string “aabbcc” should return “a2b2c2”.
+ 
+ • The string “aabbcc” should return “a2b2c2”
+ 
  • The strings “aaabaaabaaa” should return “a3b1a3b1a3”
+ 
  • The string “aaAAaa” should return “a2A2a2”
+ 
  
  [Next](@next)
 */
@@ -79,15 +83,20 @@ assert(challenge13b("aaAAaa") == "a2A2a2", "fail")
 
 #  Challenge 14: String permutations
  
-## Difficulty: Taxing
+### Difficulty: Taxing
  
  Write a function that prints all possible permutations of a given input string.
  Tip: A string permutation is any given rearrangement of its letters, for example “boamtw” is a permutation of “wombat”.
  Sample input and output
+ 
  • The string “a” should print “a”.
+ 
  • The string “ab” should “ab”, “ba”.
+ 
  • The string “abc” should print “abc”, “acb”, “bac”, “bca”, “cab”, “cba”.
+ 
  • The string “wombat” should print 720 permutations.
+ 
 
  
  [Next](@next)

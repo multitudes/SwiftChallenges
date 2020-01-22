@@ -3,17 +3,17 @@
 
 # Challenge 9: Find pangrams
 
- ## Difficulty: Tricky
+ ### Difficulty: Tricky
  
 Write a function that returns true if it is given a string that is an English pangram, ignoring
 letter case.
 Tip: A pangram is a string that contains every letter of the alphabet at least once.
 
 Sample input and output
+ 
 The string “The quick brown fox jumps over the lazy dog” should return true.
-• The string “The quick brown fox jumped over the lazy dog” should return false,
-because it’s missing the S.
-
+  
+• The string “The quick brown fox jumped over the lazy dog” should return false, because it’s missing the S.
 
  [Next](@next)
 */
@@ -36,14 +36,16 @@ assert(challenge9("The quick brown fox jumped over the lazy dog") == false, "fai
 
 # Challenge 10: Vowels and consonants
 
-
- ## Difficulty: Tricky
+ ### Difficulty: Tricky
  
  Given a string in English, return a tuple containing the number of vowels and consonants.
  Tip: Vowels are the letters, A, E, I, O, and U; consonants are the letters B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z.
  Sample input and output
+ 
  • The input “Swift Coding Challenges” should return 6 vowels and 15 consonants.
+ 
  • The input “Mississippi” should return 4 vowels and 7 consonants.
+ 
 
 
  [Next](@next)
@@ -76,7 +78,7 @@ func challenge10a(_ input: String) -> (vowels: Int, consonants: Int) {
     var vowelCount = 0
     var consonantCount = 0
     for letter in input.lowercased() { let stringLetter = String(letter)
-        print(stringLetter.rangeOfCharacter(from: vowels))
+        //print(stringLetter.rangeOfCharacter(from: vowels))
     if stringLetter.rangeOfCharacter(from: vowels) != nil {
         vowelCount += 1
         } else if stringLetter.rangeOfCharacter(from: consonants) != nil {

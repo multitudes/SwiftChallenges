@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='macos' display-mode='raw'>
     <pages>
-        <page name='Challenge 1'/>
-        <page name='Challenge 2'/>
+        <page name='Strings - Challenge 1-2'/>
         <page name='StackOverflow answer'/>
-        <page name='Challenge 3'/>
-        <page name='Challenge 4'/>
-        <page name='Challenge 5'/>
-        <page name='Challenge 6'/>
-        <page name='Challenge 7'/>
-        <page name='Challenge 8'/>
-        <page name='Challenge 9 - 10'/>
-        <page name='Challenge 11 - 12'/>
-        <page name='Challenge 13 - 15'/>
-        <page name='Challenge 16 - Numbers'/>
-        <page name='Challenge'/>
-        <page name='Challenge 19 - 23'/>
-        <page name='Challenge 24'/>
-        <page name='Challenge 27 - 28 Files'/>
+        <page name='Strings - Challenge 3-4'/>
+        <page name='Strings - Challenge 5-6'/>
+        <page name='Strings - Challenge 7-8'/>
+        <page name='Strings - Challenge 9-10'/>
+        <page name='Strings - Challenge 11 - 12'/>
+        <page name='Strings - Challenge 13 - 15'/>
+        <page name='Numbers - Challenge 16 - 18'/>
+        <page name='test'/>
+        <page name='Numbers - Challenge 19 - 23'/>
+        <page name='Numbers - Challenge 24-26'/>
+        <page name='Files - Challenge 27-28'/>
     </pages>
 </playground>

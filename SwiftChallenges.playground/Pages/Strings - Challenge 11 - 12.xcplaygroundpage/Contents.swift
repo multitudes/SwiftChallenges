@@ -3,10 +3,9 @@
 
 # Challenge 11: Three different letters
 
- ## Difficulty: Tricky
+ ### Difficulty: Tricky
  
- Write a function that accepts two strings, and returns true if they are identical in length but
- have no more than three different letters, taking case and string order into account.
+ Write a function that accepts two strings, and returns true if they are identical in length but have no more than three different letters, taking case and string order into account.
 
  [Next](@next)
 */
@@ -63,14 +62,17 @@ challenge11a("abc", "abd")
 
 # Challenge 12: Find longest prefix
 
- ## Difficulty: Tricky
+ ### Difficulty: Tricky
  
  Write a function that accepts a string of words with a similar prefix, separated by spaces, and
  returns the longest substring that prefixes all words.
  
  Sample input and output
+ 
  • The string “swift switch swill swim” should return “swi”.
+ 
  • The string “flip flap flop” should return “fl”.
+ 
 
  [Next](@next)
 */

@@ -3,10 +3,12 @@
 
 #  Challenge 19: Swap two numbers
 
- ## Difficulty: Easy
+ ### Difficulty: Easy
  
  Swap two positive variable integers, a and b, without using a temporary variable.
+ 
  Sample input and output
+ 
  • Before running your code a should be 1 and b should be 2; afterwards, b should be 1 and a should be 2.
 
  [Next](@next)
@@ -49,15 +51,19 @@ print((c,d))
 
 #  Challenge 20: Number is prime
 
- ## Difficulty: Tricky
+ ### Difficulty: Tricky
  
  Write a function that accepts an integer as its parameter and returns true if the number is prime.
  Tip: A number is considered prime if it is greater than one and has no positive divisors other than 1 and itself.
 
  The number 11 should return true.
+ 
  • The number 13 should return true.
+ 
  • The number 4 should return false.
+ 
  • The number 9 should return false.
+ 
  • The number 16777259 should return true.
  
  [Next](@next)
@@ -93,13 +99,16 @@ assert(challenge20(16777259) == true , "fail")
 
 #  Challenge 21: Counting binary ones
 
- ## Difficulty: Tricky
+ ### Difficulty: Tricky
  
  Create a function that accepts any positive integer and returns the next highest and next lowest number that has the same number of ones in its binary representation. If either number is not possible, return nil for it.
+ 
  Sample input and output
 
  • The number 12 is 1100 in binary, so it has two 1s. The next highest number with that many 1s is 17, which is 10001. The next lowest is 10, which is 1010.
+ 
  • The number 28 is 11100 in binary, so it has three 1s. The next highest number with that many 1s is 35, which is 100011. The next lowest is 26, which is 11010.
+ 
 
  
  [Next](@next)
@@ -184,11 +193,12 @@ assert(challenge21a(28) == (nextHighest: 35, nextLowest: 26), "fail")
 
 #  Challenge 22: Binary reverse
 
- ## Difficulty: Tricky
+ ### Difficulty: Tricky
  
  Create a function that accepts an unsigned 8-bit integer and returns its binary reverse, padded
  so that it holds precisely eight binary digits.
  Tip: When you get the binary representation of a number, Swift will always use as few bits as possible – make sure you pad to eight binary digits before reversing.
+ 
  Sample input and output
  
  • The number 32 is 100000 in binary, and padded to eight binary digits that’s 00100000. Reversing that binary sequence gives 00000100, which is 4. So, when given the input 32 your function should return 4.
@@ -231,8 +241,11 @@ assert(challenge22(41) == 148, "fail")
  Sample input and output
  
  • The input “01010101” should return true.
+ 
  • The input “123456789” should return true.
+ 
  • The letter “9223372036854775808” should return true.
+ 
  • The letter “1.01” should return false; “.” is not a number.
 
  
@@ -256,7 +269,9 @@ assert(challenge23("1.01") == false, "fail")
 
 /*:
  
- First, integers have a ceiling, beyond  which they refuse to work. In Swift, the ceiling is 9,223,372,036,854,775,807, which is the largest number that can be represented by a signed 64-bit integer.
+PS
+ 
+ Integers have a ceiling, beyond  which they refuse to work. In Swift, the ceiling is 9,223,372,036,854,775,807, which is the largest number that can be represented by a signed 64-bit integer.
  The third test case I gave you was one higher than the maximum signed 64-bit integer, which was intentional. However, if you recognized that, you could have switched an unsigned integer and passed the challenge by writing code like this:
 
 
