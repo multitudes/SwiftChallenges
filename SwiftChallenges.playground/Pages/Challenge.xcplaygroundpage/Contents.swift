@@ -8,8 +8,9 @@
 
 import Foundation
 let docsPath = Bundle.main.resourcePath!
-let urls = Bundle.main.urls(forResourcesWithExtension: nil, subdirectory: "dataset/train")
-
+print(docsPath)
+let urls = try? Bundle.main.urls(forResourcesWithExtension: nil, subdirectory: "dataset/train")![0]
+print(urls!)
 
 
 func check(in string: String, forAnyIn characters: String) -> Bool {

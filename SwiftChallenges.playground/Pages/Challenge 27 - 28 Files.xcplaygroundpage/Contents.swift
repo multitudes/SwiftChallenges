@@ -2,7 +2,7 @@
  [Previous](@previous)
 
  # Challenge 27: Print last lines
- ## Diffculty: Easy
+ ## Difficulty: Easy
 
 Write a function that accepts a filename on disk, then prints its last N lines in reverse order, all
 on a single line separated by commas.
@@ -33,7 +33,7 @@ Twelfth Night
 
 
 import Foundation
-
+import PlaygroundSupport
 
 func challenge27(_ lines: Int) {
     var linesText: [String] = []
@@ -57,8 +57,8 @@ func challenge27(_ lines: Int) {
     
 }
 
-challenge27(2)
-challenge27(100)
+//challenge27(2)
+//challenge27(100)
 
 
 // This is from paul
@@ -80,15 +80,15 @@ func challenge27a(_ lineCount: Int) {
     }
 }
 
-challenge27a(2)
-challenge27a(100)
+//challenge27a(2)
+//challenge27a(100)
 
 
 /*:
  [Previous](@previous)
 
  # Challenge 28: Log a message
- ## Diffculty: Easy
+ ## Difficulty: Easy
 
 Write a logging function that accepts accepts a path to a log file on disk as well as a new log message. Your function should open the log file (or create it if it does not already exist), then append the new message to the log along with the current time and date.
 Tip: It’s important that you add line breaks along with each message, otherwise the log will just become jumbled.
@@ -100,3 +100,54 @@ Sample input and output
   
  [Next](@next)
 */
+extension FileManager {
+    static var documentDirectoryURL: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    }
+}
+func writeLog(message: String, fileURL: URL){
+    do {
+        try message.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+        //print(message)
+    } catch {
+        print("Failed to write to log: \(error.localizedDescription)")
+        // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
+    }
+}
+func challenge28(_ logFile: String, message: String) {
+    var log = ""
+    let fileURL = FileManager.documentDirectoryURL.appendingPathComponent(logFile)
+        
+    print(fileURL)
+    if let content = try? String(contentsOf: fileURL) {
+        print("doh-  appending- file exists")
+        // append log
+        log = content + "\n"
+        log.append("\(Date()): \(message)")
+        print(log)
+        writeLog(message: log, fileURL: fileURL)
+    } else {
+            print("making file")
+            writeLog(message: message, fileURL: fileURL)
+    }
+}
+challenge28("log.txt", message: "try harder!")
+
+
+/*:
+ actually I did not need to write an extra function. if there is no file I default to "" and write..
+ This is from Paul however because i am in a playgroiund I get "Failed to write to log: You can’t save the file “txt” because the volume is read only."
+ */
+//
+//func challenge28a(log message: String, to logFile: String) {
+//
+//    var existingLog = (try? String(contentsOfFile: logFile)) ?? ""
+//    existingLog.append("\(Date()): \(message)\n")
+//    do {
+//        try existingLog.write(toFile: logFile, atomically: true, encoding: .utf8)
+//    } catch {
+//        print("Failed to write to log: \(error.localizedDescription)")
+//    }
+//}
+//
+//challenge28a(log: "paul said it", to: "~/Documents/log.txt")
