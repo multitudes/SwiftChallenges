@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='macos' display-mode='raw'>
+<playground version='6.0' target-platform='macos' display-mode='rendered'>
     <pages>
         <page name='Strings - Challenge 1-2'/>
         <page name='StackOverflow answer'/>
@@ -13,6 +13,8 @@
         <page name='!ztest'/>
         <page name='Numbers - Challenge 19 - 23'/>
         <page name='Numbers - Challenge 24-26'/>
-        <page name='Files - Challenge 27-28'/>
+        <page name='Files - Challenge 27-29'/>
+        <page name='Files - Challenge 30 - 31'/>
+        <page name='Files - Challenge 32 - 33'/>
     </pages>
 </playground>
