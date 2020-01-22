@@ -1,7 +1,5 @@
 # Swift Coding Challenges for Xcode Playgrounds
 
-![](SwiftChallenges.png)
-
 These are my Playgrounds to practice Interview Swift Challenges taken from the [book](https://www.hackingwithswift.com/store/swift-coding-challenges) by Paul Hudson.
 
 Playgrounds are tricky. Especially because of sandboxing some basic operations like writing and reading from a file on disk are more complex and make an easy challenge a tricky one! 
