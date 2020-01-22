@@ -174,7 +174,6 @@ challenge25c(15)
 • The code challenge26(subtract: 10, from: 30) should return 20.
 
  
-??
  This technique depends on the ~ operator (a tilde), which is bitwise NOT. It causes all the binary digits in a number to be flipped. If this is not new to you, skip ahead – I’m going to take a brief tangent into what it does behind the scenes.
  
  To subtract one number from another, we flip the bits (64 becomes -65) then add one (to make -64), and add that to our input number to make subtraction. Done!
