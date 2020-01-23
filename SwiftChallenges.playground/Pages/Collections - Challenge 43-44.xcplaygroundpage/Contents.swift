@@ -105,6 +105,6 @@ challenge43(alphabet: alphabet)
  Hint #3: Once you pull out two items at the same time, you can make them move at different speeds through the list.
  Hint #4: If you move pointer A through the list one item at a time, and pointer B through the list two items at a time, by the time pointer B reaches the end where will pointer A be?
 
-
  [Next](@next)
 */
+
