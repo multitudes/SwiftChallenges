@@ -86,20 +86,25 @@ challenge43(alphabet: alphabet)
  
  #### Difficulty: Easy
 
- Create a linked list of lowercase English alphabet letters, along with a method that traverses all
- nodes and prints their letters on a single line separated by spaces.
+ Extend your linked list class with a new method that returns the node at the mid point of the
+ linked list using no more than one loop.
+ Tip: If the linked list contains an even number of items, returning the one before or the one after the center is acceptable.
  
- Tip #1: This is several problems in one. First, create a linked list data structure, which itself is really two things. Second, use your linked list to create the alphabet. Third, write a method traverses all nodes and prints their letters.
- 
- Tip #2: You should use a class for this. Yes, really.
- 
- Tip #3: Once you complete your solution, keep a copy of the code – you’ll need it for future
- challenges!
- 
+
  Sample input and output
  
- • The output of your code should be the English alphabet printed to the screen, i.e. “a b c d ... x y z”.
+ • If the linked list contains 1, 2, 3, 4, 5, your method should return 3.
  
+ • If the linked list contains 1, 2, 3, 4, your method may return 2 or 3.
+ 
+ • If the linked list contains the English alphabet, your method may return M or N.
+
+ Hints
+ Hint #1: It’s easy to solve this in two passes, but only fractionally harder to solve it in one. Hint #2: If you use fast enumeration – for i in items – you move over one item at a
+ time. Can you think of a way of moving over more than one item?
+ Hint #3: Once you pull out two items at the same time, you can make them move at different speeds through the list.
+ Hint #4: If you move pointer A through the list one item at a time, and pointer B through the list two items at a time, by the time pointer B reaches the end where will pointer A be?
+
 
  [Next](@next)
 */
