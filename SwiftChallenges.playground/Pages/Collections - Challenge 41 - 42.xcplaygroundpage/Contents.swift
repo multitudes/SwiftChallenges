@@ -77,3 +77,50 @@ extension Collection where Iterator.Element == Int {
 [Int]().challenge41a() // should return nil.
 
 
+/*:
+ [Previous](@previous)
+
+ # Challenge 42: Recreate index(of:)
+ 
+ #### Difficulty: Easy
+
+ Write an extension for all collections that reimplements the index(of:) method.
+ Tip: This is one of the easiest standard library methods to reimplement, so please give it an especially good try before reading any hints.
+
+ 
+ #### Sample input and output
+
+ • The code [1, 2, 3].challenge42(indexOf: 1) should return 0.
+
+ • The code [1, 2, 3].challenge42(indexOf: 3) should return 2.
+
+ • The code [1, 2, 3].challenge42(indexOf: 5) should return nil.
+ 
+ #### Hints
+ 
+ Hint #1: You will need to extend Collection using a constraint on the type of element it stores.
+ 
+ Hint #2: Your return type should be Int? because the item might not exist in the collection.
+ 
+ Hint #3: This would be a good time to use enumerated() to retrieve items and their index from a collection.
+ 
+ [Next](@next)
+*/
+
+extension Collection where Iterator.Element : Equatable  {
+    func challenge42(indexOf search: Iterator.Element) -> Int? {
+        guard count != 0 else {
+            return nil
+        }
+        for (index, number) in self.enumerated()  {
+         //   print(number)
+            if number == search { return index  }
+        }
+        return nil
+    }
+}
+
+
+[1, 2, 3].challenge42(indexOf: 1) //should return 0.
+[1, 2, 3].challenge42(indexOf: 3) //should return 2.
+[1, 2, 3].challenge42(indexOf: 5) //should return nil.
