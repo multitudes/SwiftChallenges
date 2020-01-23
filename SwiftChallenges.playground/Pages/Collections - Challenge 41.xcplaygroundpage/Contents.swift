@@ -76,3 +76,4 @@ extension Collection where Iterator.Element == Int {
 [1, 2, 3, 4].challenge41a() //should return 2.5.
 [Int]().challenge41a() // should return nil.
 
+
