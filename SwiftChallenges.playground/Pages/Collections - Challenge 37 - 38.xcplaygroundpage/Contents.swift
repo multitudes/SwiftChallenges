@@ -144,3 +144,45 @@ extension Collection where Iterator.Element: Comparable {
  
  [Next](@next)
 */
+
+extension Collection where Iterator.Element == String {
+    func challenge39() -> [String] {
+        self.sorted(){ $0.count > $1.count }
+    }
+}
+
+["a", "abc", "ab"].challenge39()
+
+["paul", "taylor", "adele"].challenge39() //should return ["taylor", "adele", "paul"].
+[String]().challenge39() //should return [].
+
+
+/*:
+ [Previous](@previous)
+
+ # Challenge 40: Missing numbers in array
+ 
+ #### Difficulty: Easy
+
+ Create a function that accepts an array of unsorted numbers from 1 to 100 where zero or more
+ numbers might be missing, and returns an array of the missing numbers.
+ 
+ #### Sample input and output
+ If your test array were created like this:
+
+ var testArray = Array(1...100)
+ testArray.remove(at: 25)
+ testArray.remove(at: 20)
+ testArray.remove(at: 6)
+ 
+ Then your method should return  [7, 21, 26], because those are the numbers missing from the array.
+
+ #### Hints
+ 
+ Hint #1: There’s a naïve solution involving arrays, but it’s very slow.
+ Hint #2: You should try using a Set, which has a significantly faster contains() method.
+ Hint #3: You can compute the different between two sets using symmetricDifference().
+
+ 
+ [Next](@next)
+*/
