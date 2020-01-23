@@ -47,12 +47,38 @@ class LinkedListNode<T> {
 
 class LinkedList<T> {
     var start: LinkedListNode<T>?
+    
+    // pauls mid point
+    var centerNode: LinkedListNode<T>? {
+        var slow = start
+        var fast = start
+        while fast != nil && fast?.next != nil {
+            slow = slow?.next
+            fast = fast?.next?.next
+        }
+        return slow
+    }
+    
     func printNodes() {
         var currentNode = start
         while let node = currentNode {
             print(node.value, terminator: " ")
             currentNode = node.next
         }
+    }
+    func midPoint() {
+        var currentNodeA = start
+        var currentNodeB = start
+        while let nodeA = currentNodeA, let nodeB = currentNodeB {
+             currentNodeB = nodeB.next
+            guard let secondNode = currentNodeB?.next else { break}
+            currentNodeA = nodeA.next
+            currentNodeB = secondNode
+            
+        }
+        guard let node = currentNodeA else { return }
+        print("mid point is : \(node.value)")
+        
     }
 }
 
@@ -107,4 +133,90 @@ challenge43(alphabet: alphabet)
 
  [Next](@next)
 */
+// added above in the linked list class
+func challenge44(linkedlist: String) {
+    let list = LinkedList<Character>()
+    var previousNode: LinkedListNode<Character>? = nil
+    
+    for letter in linkedlist {
+        
+        let node = LinkedListNode(value: letter)
+        
+        if let predecessor = previousNode {
+            predecessor.next = node
+        } else {
+            list.start = node
+        }
+        
+        previousNode = node
+    }
+    list.midPoint()
+}
+challenge44(linkedlist: alphabet) //your method may return M or N.
 
+var numbers = "12345" // your method should return 3.
+challenge44(linkedlist: numbers)
+
+numbers = "1234" //your method may return 2 or 3.
+challenge44(linkedlist: numbers)
+
+//pauls
+
+func challenge44Paul(linkedlist: String) {
+    let list = LinkedList<Character>()
+     var previousNode: LinkedListNode<Character>? = nil
+     
+     for letter in linkedlist {
+         
+         let node = LinkedListNode(value: letter)
+         
+         if let predecessor = previousNode {
+             predecessor.next = node
+         } else {
+             list.start = node
+         }
+         
+         previousNode = node
+     }
+    print(list.centerNode?.value ?? "")
+}
+
+challenge44Paul(linkedlist: numbers)
+numbers = "1234" //your method may return 2 or 3.
+challenge44Paul(linkedlist: numbers)
+
+challenge44Paul(linkedlist: alphabet)
+
+
+/*:
+ [Previous](@previous)
+
+ # Challenge 45: Traversing the tree
+ 
+ #### Difficulty: Easy
+
+ **Note: this challenge cannot be attempted until you have first completed challenge 54.**
+ 
+ Write a new method for your binary search tree that traverses the tree in order, running a closure on each node.
+ Tip: Traversing a node in order means visiting its left value, then visiting its own value, then visiting its right value.
+
+Assuming a binary tree created from the array [2, 1, 3]:
+ 
+The code tree.root?.traverse { print($0.key) } should print 1, 2, 3.
+
+The code var sum = 0; tree.root?.traverse { sum += $0.key }; print(sum) should print 6.
+
+The code var values = [Int](); tree.root?.traverse  { values.append($0.key) }; print(values.count) should print 3.
+
+ #### Hints
+ 
+ Hint #1: Your entire function can be just three lines of code. Yes, it really is that easy – hurray for recursion!
+
+ Hint #2: You can write this method for the binary tree class or for its nodes; it really doesn’t matter. I chose to write it for the nodes so that I can print partial trees.
+
+ Hint #3: Make sure it accepts a closure parameter that itself accepts one parameter (your Node<T> equivalent) and returns void.
+
+ Hint #4: Remember the left and/or right node may not exist.
+
+ [Next](@next)
+*/
