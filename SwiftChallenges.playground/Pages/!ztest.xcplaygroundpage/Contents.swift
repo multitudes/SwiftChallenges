@@ -70,3 +70,15 @@ let courses = inputString.ranges(of: "\\b[0-9]{1,}[a-zA-Z ]{1,}", options: .regu
 print(courses)   //   ["323 ECO Economics Course ", "451 ENG English Course ", "789 Mathematical Topography"]
 
 
+extension URL {
+    var isDirectory: Bool {
+        return (try? resourceValues(forKeys: [.isDirectoryKey]))?.isDirectory == true
+    }
+    var subDirectories: [URL] {
+        guard isDirectory else { return [] }
+        return (try? FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles]).filter{ $0.isDirectory }) ?? []
+    }
+}
+let documentsDirectoryURL =  try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+
+let subDirs = documentsDirectoryURL.subDirectories

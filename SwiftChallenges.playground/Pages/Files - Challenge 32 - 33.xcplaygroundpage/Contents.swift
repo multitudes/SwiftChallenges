@@ -113,15 +113,28 @@ func challenge33(directory: String) -> [String] {
     var isDirectory: ObjCBool = false
     
     let directoryURL = URL(fileURLWithPath: directory)
+    var duplicates = Set<String>()
+    var seen = Set<String>()
     guard FileManager.default.fileExists(atPath: directory, isDirectory: &isDirectory) && isDirectory.boolValue == true else {
         return []
     }
     
-    
-    print(directoryURL)
-    
-        return []
+    guard let files = FileManager.default.enumerator(at: directoryURL, includingPropertiesForKeys: nil) else { return []
     }
+    print("directoryURL : \(directoryURL)")
+        print("Files : \(files)")
+    for case let file as URL in files {
+        guard file.hasDirectoryPath == false else { continue }
+        print(file)
+        let filename = file.lastPathComponent
+        if seen.contains(filename) {
+            duplicates.insert(filename)
+        } else {
+        seen.insert(filename)
+        }
+    }
+        return Array(duplicates)
+}
 
 challenge33(directory: "/Users/laurentb/Documents/testss/")
 challenge33(directory: "/Users/laurentb/Documents/testss/")
