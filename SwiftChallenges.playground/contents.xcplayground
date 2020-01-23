@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='macos' display-mode='rendered'>
+<playground version='6.0' target-platform='macos' display-mode='raw'>
     <pages>
-        <page name='Strings - Challenge 1-2'/>
+        <page name='!ztest'/>
+        <page name='Collections - Challenge 37 - 38'/>
+        <page name='Files - Challenge 27-29'/>
+        <page name='Files - Challenge 30 - 31'/>
+        <page name='Files - Challenge 32 - 33'/>
+        <page name='Files - Challenge 34-36'/>
+        <page name='Numbers - Challenge 16 - 18'/>
+        <page name='Numbers - Challenge 19 - 23'/>
+        <page name='Numbers - Challenge 24-26'/>
         <page name='StackOverflow answer'/>
+        <page name='Strings - Challenge 1-2'/>
         <page name='Strings - Challenge 3-4'/>
         <page name='Strings - Challenge 5-6'/>
         <page name='Strings - Challenge 7-8'/>
         <page name='Strings - Challenge 9-10'/>
         <page name='Strings - Challenge 11 - 12'/>
         <page name='Strings - Challenge 13 - 15'/>
-        <page name='Numbers - Challenge 16 - 18'/>
-        <page name='!ztest'/>
-        <page name='Numbers - Challenge 19 - 23'/>
-        <page name='Numbers - Challenge 24-26'/>
-        <page name='Files - Challenge 27-29'/>
-        <page name='Files - Challenge 30 - 31'/>
-        <page name='Files - Challenge 32 - 33'/>
-        <page name='Files - Challenge 34-36'/>
-        <page name='Collections - Challenge 37'/>
     </pages>
 </playground>
