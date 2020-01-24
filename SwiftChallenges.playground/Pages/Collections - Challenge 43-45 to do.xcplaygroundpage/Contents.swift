@@ -24,7 +24,6 @@
 */
 import Foundation
 
-var str = "Hello, playground"
 
 class LinkedListNode<T> {
     var value: T
