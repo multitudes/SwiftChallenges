@@ -26,16 +26,6 @@ import Foundation
 
 var str = "Hello, playground"
 
-class Letter {
-    var previous: Character?
-    var next: Character?
-    var current: Character
-    
-    init(current: Character) {
-        self.current = current
-    }
-}
-
 class LinkedListNode<T> {
     var value: T
     var next: LinkedListNode?
