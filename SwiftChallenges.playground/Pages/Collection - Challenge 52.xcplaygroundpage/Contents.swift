@@ -277,3 +277,140 @@ comparable values, then write a method that returns whether the tree is balanced
 
 //we can define a binary tree node as a generic class that stores a key, as well as left and right values. In code, it looks like this:
 
+class Node<T> {
+    var key: T
+    var left: Node<T>?
+    var right: Node<T>?
+    init(key: T) {
+        self.key = key
+    }
+}
+//That class will be used to hold one node somewhere in the tree, but we can create another class that wraps up the whole tree:
+
+class BinarySearchTree<T: Comparable> : CustomStringConvertible {
+    var root : Node<T>?
+    init(array: [T]) {
+        for item in array {
+            print("item in array: \(item)")
+            // this will be set to true when we've created a node from this item
+            var placed = false
+            // first pass root is nil, will be set below to the first element of the array then
+            if let rootNode = root {
+                // so this is the second pass and compare the items
+                print("rootNode.key : \(rootNode.key)")
+                // we have a root node, so make it our tracker
+                var tracker = rootNode
+                // at beginning for ex comparing the second item to the first (the root)
+                while placed == false {
+                    // if we're placing an item that comes before our tracker
+                    if item <= tracker.key {
+                        // if we don't already have a left node
+                        if tracker.left == nil {
+                            // make this item our left node
+                            tracker.left = Node(key: item)
+                            // mark it as placed and exit the loop
+                            placed = true
+                        }
+                        // we already have a left node; make that the tracker so we can compare against it. and loop again until placed is true
+                        tracker = tracker.left!
+                    } else {
+                        // this item is greater than our tracker, so it needs to sit on its right
+                        // if we don't already have a right node
+                        if tracker.right == nil {
+                            // make this item our right node
+                            tracker.right = Node(key: item)
+                            // mark it as placed - exit the while
+                            placed = true
+                        }
+                        // we already have a right node; make that the tracker so we can compare against it.
+                        // and keep looping until placed is true
+                        tracker = tracker.right!
+                    }
+                }
+            } else {
+                //this is at the first time when root is still nil
+                root = Node(key: item)
+                print("root is \(item)")
+            }
+        }
+    }
+    func isBalanced() -> Bool {
+        func minDepth(from node: Node<T>?) -> Int {
+            guard let node = node else { return 0 }
+            let returnValue = 1 + min(minDepth(from: node.left), minDepth(from: node.right))
+            print("Got min depth \(returnValue) for \(node.key)")
+            return returnValue
+        }
+        func maxDepth(from node:Node<T>?) -> Int {
+            guard let node = node else { return 0 }
+            let returnValue = 1 + max(maxDepth(from: node.left),maxDepth(from: node.right))
+            print("Got max depth \(returnValue) for \(node.key)")
+            return returnValue
+        }
+        guard let root = root else { return true }
+        let difference = maxDepth(from: root) - minDepth(from: root)
+        return difference <= 1
+    }
+    
+    //create your own description property that prints the tree in whatever way you find useful.
+    var description: String {
+        // when I print my array check the root property has a value
+        guard let first = root else { return "(Empty)" }
+        //init my empty queue
+        var queue = [Node<T>]()
+        // append the root
+        queue.append(first)
+        // init the output
+        var output = ""
+        
+        // my q starts at 1
+        while queue.count > 0 {
+            var nodesAtCurrentLevel = queue.count
+            // starts at 1 like my q count
+            while nodesAtCurrentLevel > 0 {
+                // first pass starts removing the root and appending to the output
+                let node = queue.removeFirst()
+                output += "\(node.key) "
+                //update the queue before exiting with the children
+                if node.left != nil { queue.append(node.left!) }
+                if node.right != nil { queue.append(node.right!) }
+                nodesAtCurrentLevel -= 1
+            }
+            // first pass I will have the root followed by \n and continue until there are no children and q is empty
+            output += "\n"
+        }
+        //there are no children and q count is zero
+            return output
+    }
+}
+
+//So, the BinarySearchTree has one node, which is the root of the tree, and nothing else. It is another generic type, but this time with a constraint: the nodes it contains must store data that conforms to Comparable
+
+[2, 1, 3]
+let aa = BinarySearchTree(array: [2, 1, 3])
+print(aa)
+
+
+//The following values should create balanced trees:
+BinarySearchTree(array: [2, 1, 3]).isBalanced()
+BinarySearchTree(array: [5, 1, 7, 6, 2, 1, 9]).isBalanced()
+BinarySearchTree(array: [5, 1, 7, 6, 2, 1, 9, 1]).isBalanced()
+BinarySearchTree(array: [5, 1, 7, 6, 2, 1, 9, 1, 3]).isBalanced()
+BinarySearchTree(array: [50, 25, 100, 26, 101, 24, 99]).isBalanced()
+BinarySearchTree(array: ["k", "t", "d", "a", "z", "m", "f"]).isBalanced()
+BinarySearchTree(array: [1]).isBalanced()
+BinarySearchTree(array: [Character]()).isBalanced()
+
+BinarySearchTree(array: [2, 1, 3]).isBalanced()
+print(BinarySearchTree(array: [5, 1, 7, 6, 2, 1, 9]))
+print(BinarySearchTree(array: [5, 1, 7, 6, 2, 1, 9, 1]))
+print(BinarySearchTree(array: [5, 1, 7, 6, 2, 1, 9, 1, 3]))
+print(BinarySearchTree(array: [50, 25, 100, 26, 101, 24, 99]))
+print(BinarySearchTree(array: ["k", "t", "d", "a", "z", "m", "f"]))
+BinarySearchTree(array: [1]).isBalanced()
+print(BinarySearchTree(array: [Character]()))
+
+//The following values should not create balanced trees:
+BinarySearchTree(array: [1, 2, 3, 4, 5]).isBalanced()
+BinarySearchTree(array: ["f", "d", "c", "e", "a", "b"]).isBalanced()
+
