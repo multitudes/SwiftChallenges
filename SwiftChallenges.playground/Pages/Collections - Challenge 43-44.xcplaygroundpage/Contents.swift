@@ -191,8 +191,8 @@ challenge44Paul(linkedlist: alphabet)
 /*:
  [Previous](@previous)
 
- # Challenge 45: Traversing the tree
- 
+ # Challenge 45: Traversing the tree // to do after 54!
+  
  #### Difficulty: Easy
 
  **Note: this challenge cannot be attempted until you have first completed challenge 54.**
