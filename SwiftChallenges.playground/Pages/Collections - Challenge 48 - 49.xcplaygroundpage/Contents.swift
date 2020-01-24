@@ -141,3 +141,51 @@ challenge49b(numbers: 1, 2, 2, 3, 3, 4) //should return 5
 challenge49b(numbers: 5, 5, 5, 12, 12) //should return 12,
 challenge49b(numbers: 1, 1, 2, 2, 3, 3, 4, 4) // should return 10.
 
+
+/*:
+ [Previous](@previous)
+
+ # Challenge 50: Count the largest range
+ 
+ #### Difficulty: Tricky
+
+Write a function that accepts an array of positive and negative numbers and returns a closed range containing the position of the contiguous positive numbers that sum to the highest value, or nil if nothing were found.
+ 
+ Sample input and output
+ 
+ • The array [0, 1, 1, -1, 2, 3, 1] should return 4...6 because the highest sum of contiguous positive numbers is 2 + 3 + 1, which lie at positions 4, 5, and 6 in the array.
+ 
+ • The array [10, 20, 30, -10, -20, 10, 20] should return 0...2.
+ 
+ • The array [1, -1, 2, -1] should return 2...2.
+ 
+ • The array [2, 0, 2, 0, 2] should return 0...0.
+ 
+ • The array [Int]() should return nil.
+
+
+ Hints
+
+ Hint #1: This is a perfect use for NSCountedSet.
+
+ Hint #2: But: NSCountedSet doesn’t use generics, so you’ll need to typecast somehow.  Expect to be judged on your method of typecasting!
+ 
+ Hint #3: You’ll need to use modulus to find numbers that are repeated an even number of times.
+ 
+ Hint #4: You’ll need to declare your parameter as numbers: Int....
+
+ 
+ [Next](@next)
+*/
+
+
+func challenge50(_ input: [Int]) -> CountableClosedRange<Int>? {
+    var bestRange = CountableClosedRange<Int>? = nil
+    guard input.count != 0 else { return nil}
+    return a
+}
+challenge50([0, 1, 1, -1, 2, 3, 1]) // should return 4...6 because the highest sum of contiguous positive numbers is 2 + 3 + 1, lie at positions 4, 5, and 6 in the array.
+challenge50([10, 20, 30, -10, -20, 10, 20]) // should return 0...2.
+challenge50([1, -1, 2, -1]) //should return 2...2.
+challenge50([2, 0, 2, 0, 2]) // should return 0...0.
+challenge50([Int]()) // should return nil.
