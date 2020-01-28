@@ -199,3 +199,159 @@ extension Array where Element: Comparable {
 ["f", "a", "b"].insertionSortInPlace() // should become ["a", "b", "f"].
 
 [String]().insertionSortInPlace() // should become []
+
+
+
+/*:
+
+ # Challenge 57: Isomorphic values
+ 
+ #### Difficulty: Easy
+
+Write a function that accepts two values and returns true if they are isomorphic. That is, each
+part of the value must map to precisely one other, but that might be itself.
+ 
+Tip: Strings A and B are considered isomorphic if you can replace all instances of each letter with another. For example, "tort" and "pump" are isomorphic, because you can replace both Ts with a P, the O with a U, and the R with an M. For integers you compare individual digits, so 1231 and 4564 are isomorphic numbers. For arrays you compare elements, so [1, 2, 1] and [4, 8, 4] are isomorphic.
+ 
+ Sample input and output
+ 
+ These are all isomorphic values:
+ 
+ • "clap" and "slap"
+ 
+ • "rum" and "mud"
+ 
+ • "pip" and "did"
+ 
+ • "carry" and "baddy"
+ 
+ • "cream" and "lapse"
+ 
+ • 123123 and 456456
+ 
+ • 3.14159 and 2.03048
+ 
+ • [1, 2, 1, 2, 3] and [4, 5, 4, 5, 6]
+ 
+ These are not isomorphic values:
+ 
+ • "carry" and "daddy" – the Rs have become D, but C has also become D.
+ 
+ • "did" and "cad" – the first D has become C, but the second has remained D.
+ 
+ • "maim" and "same" – the first M has become S, but the second has become E.
+ 
+ • "curry" and "flurry" – the strings have different lengths.
+ 
+ • 112233 and 112211 – the number 1 is being mapped to 1, and the number 3 is also being mapped to 1.
+ 
+ Hints
+
+ Hint #1: Stringification holds the key to solve this problem simply. Your parameters should both be Any, and you can use the String(describing:) initializer to stringify them.
+
+ Hint #2: You need to loop over all the characters in both stringified character arrays. To avoid out of bounds problems, make sure you start by checking both strings are the same length.
+
+ Hint #3: You should store your character mappings using a dictionary of type [Character: Character].
+
+ Hint #4: If you convert the characters of each string into an array you’ll find subscripting significantly easier.
+
+ Hint #5: When you loop over each letter in the current string, you can check if it exists as a key in your character map. For characters that exist, check that its value matches the letter in the second string – if it doesn’t, it’s not an isomorphic string.
+
+ Hint #6: If your letter doesn’t exist as a key in the character map, it’s possible the second string’s letter does exist as a value attached to a different key. If so, it’s not an isomorphic string.
+
+ Hint #7: If the character isn’t already a key, and the second string’s letter isn’t already a value, then add the character and matching second string letter to your character mapping dictionary.
+
+ Hint #8: If you’ve made it through all the characters in the first string and not encountered any problems, you have an isomorphic string.
+
+ # Remember
+ 
+ Insertion sort is the preferred sorting algorithm for arrays with fewer than 20 items and is used by Swift itself – this is one that’s worth getting right!
+ 
+ [Next](@next)
+*/
+
+
+func challenge57(first: Any, second: Any) -> Bool {
+    
+    let firstString = String(describing: first)
+    let secondString = String(describing: second)
+    if firstString.count != secondString.count { return false }
+    var firstDic = [Character: Character]()
+    var secondDic = [Character: Character]()
+    let firstArray = Array(firstString)
+    let secondArray = Array(secondString)
+    print(firstArray, secondArray)
+    
+    for i in 0 ..< firstArray.count {
+        if firstDic[firstArray[i]] == nil {
+            firstDic[firstArray[i]] = secondArray[i]
+        } else {
+            if firstDic[firstArray[i]] != secondArray[i] { return false}
+        }
+        if secondDic[secondArray[i]] == nil {
+            secondDic[secondArray[i]] = firstArray[i]
+        } else {
+            if secondDic[secondArray[i]] != firstArray[i] { return false}
+        }
+        
+    }
+    return true
+}
+
+challenge57(first: 123123, second: 456456)
+challenge57(first: "clap", second: "slap")
+challenge57(first: "rum", second: "mud")
+challenge57(first: "pip", second: "did")
+challenge57(first: "carry", second: "baddy")
+challenge57(first: "cream", second: "lapse")
+challenge57(first: 123123, second: 456456)
+challenge57(first: 3.14159, second: 2.03048)
+challenge57(first: [1, 2, 1, 2, 3], second: [4, 5, 4, 5, 6])
+
+
+//These are not isomorphic values:
+challenge57(first: "carry", second: "daddy")
+challenge57(first: "did", second: "cad")
+challenge57(first: "maim", second: "same")
+challenge57(first: "curry", second: "flurry")
+challenge57(first: 112233, second: 112211)
+
+func challenge57PaulsSolution(first firstValue: Any, second secondValue: Any) -> Bool {
+    let first = String(describing: firstValue)
+    let second = String(describing: secondValue)
+    guard first.count == second.count else { return false }
+    var characterMap = [Character: Character]()
+    let firstArray = Array(first)
+    let secondArray = Array(second)
+    for (index, character) in firstArray.enumerated() {
+        let otherCharacter = secondArray[index]
+        if let currentMapping = characterMap[character] {
+            if currentMapping != otherCharacter {
+                return false
+             }
+        } else {
+            if characterMap.values.contains(otherCharacter) {
+                return false
+             }
+        characterMap[character] = otherCharacter }
+    }
+    return true
+}
+
+challenge57PaulsSolution(first: 123123, second: 456456)
+challenge57PaulsSolution(first: "clap", second: "slap")
+challenge57PaulsSolution(first: "rum", second: "mud")
+challenge57PaulsSolution(first: "pip", second: "did")
+challenge57PaulsSolution(first: "carry", second: "baddy")
+challenge57PaulsSolution(first: "cream", second: "lapse")
+challenge57PaulsSolution(first: 123123, second: 456456)
+challenge57PaulsSolution(first: 3.14159, second: 2.03048)
+challenge57PaulsSolution(first: [1, 2, 1, 2, 3], second: [4, 5, 4, 5, 6])
+
+
+//These are not isomorphic values:
+challenge57PaulsSolution(first: "carry", second: "daddy")
+challenge57PaulsSolution(first: "did", second: "cad")
+challenge57PaulsSolution(first: "maim", second: "same")
+challenge57PaulsSolution(first: "curry", second: "flurry")
+challenge57PaulsSolution(first: 112233, second: 112211)
